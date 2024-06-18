@@ -27,8 +27,12 @@ También almacena información en una base de datos local para que puedas accede
 `cd literalura`
 `mvn install`
 
+### Crear base de datos en PostGress SQL
+Para que pueda funcionar el programa, se tiene que crear la tabla de datos "dbalura", para ello se recomienda ver modulos anteriores de la clase Alura sobre como se hace ello.
+
 ### Ejecuta la aplicación:
 `mvn spring-boot:run`
+Tener en cuenta que en el programa actual, en la seccion: /application.properties: Estan relacionadas con la variable de entornos: Usuario, Contraseña, Data base local de PostGress SQL, por lo que tienes que colocar tus propios datos en "Variables de entorno" de tu PC.
 ¡Empieza a disfrutar de Literalura!
 
 ## Estructura del proyecto:

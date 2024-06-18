@@ -157,28 +157,28 @@ public void buscarLibroPorTitulo() {
     }
 }
 
-    public void buscarAutorPorNombre () {
-            System.out.println("""
-                    -------------------------------
-                     📙 BUSCAR AUTOR POR NOMBRE 📙
-                    -------------------------------
-                    """);
-            System.out.println("Ingrese el nombre del autor que deseas buscar:");
-            var nombre = teclado.nextLine();
-            Optional<Autor> autor = repository.buscarAutorPorNombre(nombre);
-            if (autor.isPresent()) {
-                System.out.println(
-                        "\nAutor: " + autor.get().getNombre() +
-                                "\nFecha de Nacimiento: " + autor.get().getNacimiento() +
-                                "\nFecha de Fallecimiento: " + autor.get().getFallecimiento() +
-                                "\nLibros: " + autor.get().getLibros().stream()
-                                .map(l -> l.getTitulo()).collect(Collectors.toList()) + "\n"
-                );
-            } else {
-                System.out.println("El autor no existe en la BD");
-            }
-        }
+     public void buscarAutorPorNombre() {
+        System.out.println("""
+            -------------------------------
+             📙 BUSCAR AUTOR POR NOMBRE 📙
+            -------------------------------
+            """);
+        System.out.println("Ingrese el nombre del autor que deseas buscar:");
+        var nombre = teclado.nextLine().toLowerCase(); // Convertir a minúsculas
 
+        Optional<Autor> autor = repository.buscarAutorPorNombre(nombre);
+        if (autor.isPresent()) {
+            System.out.println(
+                    "\nAutor: " + autor.get().getNombre() +
+                            "\nFecha de Nacimiento: " + autor.get().getNacimiento() +
+                            "\nFecha de Fallecimiento: " + autor.get().getFallecimiento() +
+                            "\nLibros: " + autor.get().getLibros().stream()
+                            .map(l -> l.getTitulo()).collect(Collectors.toList()) + "\n"
+            );
+        } else {
+            System.out.println("El autor no existe en la BD");
+        }
+    }
         public void listarLibrosRegistrados () {
             System.out.println("""
                     ----------------------------------
